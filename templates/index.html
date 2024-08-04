@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fitness Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Fitness Tracker</h1>
+        <p>Select an exercise to start tracking:</p>
+        <form id="exerciseForm">
+            <div class="form-group">
+                <label>
+                    <input type="radio" name="exercise" value="1" checked> Squat
+                </label>
+                <label>
+                    <input type="radio" name="exercise" value="2"> Curl
+                </label>
+                <label>
+                    <input type="radio" name="exercise" value="3"> Sit-up
+                </label>
+            </div>
+            <button type="submit">Start</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
