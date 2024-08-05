@@ -2,7 +2,7 @@
 
 ## Overview
 
-The AI Fitness Tracker is a web-based application that utilizes computer vision and machine learning to track and analyze exercises in real-time. Built with Flask for the backend and OpenCV, MediaPipe for exercise recognition, this project offers users a dynamic way to monitor their exercise routines and get feedback on their performance.
+The AI Workout Assisstant is a web-based application that utilizes computer vision and machine learning to track and analyze exercises in real-time. Built with Flask for the backend and OpenCV, MediaPipe for exercise recognition, this project offers users a dynamic way to monitor their exercise routines and get feedback on their performance.
 
 ## Features
 
