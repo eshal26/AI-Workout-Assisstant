@@ -1,4 +1,4 @@
-# AI Fitness Tracker
+# AI Workout Assisstant
 
 ## Overview
 
