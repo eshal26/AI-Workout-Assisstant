@@ -11,18 +11,12 @@
         <h1>AI Fitness Tracker</h1>
         <p>Select an exercise to start tracking:</p>
         <form id="exerciseForm">
-            <div class="form-group">
-                <label>
-                    <input type="radio" name="exercise" value="1" checked> Squat
-                </label>
-                <label>
-                    <input type="radio" name="exercise" value="2"> Curl
-                </label>
-                <label>
-                    <input type="radio" name="exercise" value="3"> Sit-up
-                </label>
+             <div class="form-group">
+                <button type="button" class="exercise-btn" data-value="1">Squat</button>
+                <button type="button" class="exercise-btn" data-value="2">Curl</button>
+                <button type="button" class="exercise-btn" data-value="3">Sit-up</button>
+                <input type="hidden" id="selectedExercise" name="exercise" value="1">
             </div>
-            <button type="submit">Start</button>
         </form>
     </div>
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>

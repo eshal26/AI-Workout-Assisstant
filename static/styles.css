@@ -3,6 +3,8 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif
+    font-size: 16px;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
@@ -18,8 +20,7 @@ h1 {
 }
 
 .container {
-    max-width: 1000px;
-    width: 100%;
+    width: 80%;
     background: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -51,12 +52,26 @@ button {
     cursor: pointer;
 }
 
+.exercise-btn {
+    background-color: #28a745;
+    color: #fff;
+    font-size: 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+}
+
+.exercise-btn:hover {
+    background-color: #ddd;
+    color: #333;
+}
+
 button:hover {
     background-color: #218838;
 }
 
 #videoFeed {
-    width: 100%; 
+    width: 80%; 
     border: 2px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
@@ -67,3 +82,24 @@ button:hover {
     text-decoration: none; 
     font-size: inherit;           
 }
+
+.radio-label {
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+    padding-left: 35px; /* Adjust padding to account for the custom radio button */
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+.radio-label input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+
+
+
