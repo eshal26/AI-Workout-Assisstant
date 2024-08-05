@@ -1,10 +1,9 @@
 /* styles.css */
 
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 16px;
+    font-size: 20px;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
@@ -20,7 +19,7 @@ h1 {
 }
 
 .container {
-    width: 80%;
+    width: 60%;
     background: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -28,8 +27,12 @@ h1 {
     text-align: center;
 }
 
+.heading {
+    margin-bottom: 80px;
+}
 
 .form-group {
+    margin-top: 80px;
     margin-bottom: 20px;
 }
 
@@ -46,14 +49,14 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #28a745;
+    background-color: #333;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
 }
 
 .exercise-btn {
-    background-color: #28a745;
+    background-color: #333;
     color: #fff;
     font-size: 20px;
     margin-right: 10px;
@@ -67,11 +70,12 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #ddd;
+    color: #333;
 }
 
 #videoFeed {
-    width: 80%; 
+    width: 100%; 
     border: 2px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
