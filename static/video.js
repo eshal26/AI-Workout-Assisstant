@@ -3,6 +3,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const exerciseId = urlParams.get('exercise_id');
     const exerciseHeader = document.getElementById('exercise');
+    const resetButton= document.getElementById('resetButton');
+
+    resetButton.addEventListener('click', () => {
+        fetch('/reset', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.log('Error:', error);
+    });
+});
 
     if (exerciseId == 1)
     exerciseHeader.textContent = `Squat`;
@@ -13,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     if (exerciseId && videoFeed) {
-        // Ensure the URL is correctly formatted
         videoFeed.src = `/video_feed/${exerciseId}`;
     } else {
         console.error('No exercise ID found in query parameters.');

@@ -117,6 +117,17 @@ def recognise_squat(detection):
     except:
         pass
 
+def reset_exercise_state():
+    global counter
+    global state
+    global feedback
+    global range_flag
+    global halfway
+    counter = 0
+    state = 'Down'
+    feedback = ''
+    range_flag = True
+
 # Recognize situp function
 def recognise_situp(detection):
     global counter
