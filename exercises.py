@@ -169,13 +169,13 @@ def recognize_pushup(detection):
     global state
     global feedback
     global range_flag
-    global halfway
+
     try:
         landmarks = detection.pose_landmarks.landmark
 
         #Get coordinates
         left_shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x, landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
-        left_elbow = [landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.vaue].x, landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].y]
+        left_elbow = [landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].x, landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].y]
         left_wrist = [landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].x, landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].y]
 
         right_shoulder = [landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y]
@@ -187,14 +187,26 @@ def recognize_pushup(detection):
 
         #Down state
         if left_elbow_angle < 90 and right_elbow_angle < 90:
+            range_flag = True
             state = "Down"
             feedback = "Push upwards!"
 
+        elif left_elbow_angle >= 100 and right_elbow_angle >= 100 and state == "Down":
+            range_flag = False
+            feedback = "Go Lower!."
+
+
         #Up state
-        if left_elbow_angle > 160 and right_elbow_angle > 160 and state == "Down":
-            state = "Up"
-            counter += 1
-            feedback = "Good push-up!"
+        elif left_elbow_angle > 160 and right_elbow_angle > 160 and state == "Down":
+            if range_flag:  
+                state = "Up"
+                counter += 1
+                feedback = "Good push-up!"
+            else:
+                feedback = "Did not push up completely."
+
+        else:
+            feedback = "keep going!"
     except:
         pass
 
