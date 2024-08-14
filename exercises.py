@@ -117,16 +117,6 @@ def recognise_squat(detection):
     except:
         pass
 
-def reset_exercise_state():
-    global counter
-    global state
-    global feedback
-    global range_flag
-    global halfway
-    counter = 0
-    state = 'Down'
-    feedback = ''
-    range_flag = True
 
 # Recognize situp function
 def recognise_situp(detection):
@@ -173,6 +163,54 @@ def recognise_situp(detection):
     except: 
         pass
 
+#Recognize pushup function
+def recognize_pushup(detection):
+    global counter
+    global state
+    global feedback
+    global range_flag
+    global halfway
+    try:
+        landmarks = detection.pose_landmarks.landmark
+
+        #Get coordinates
+        left_shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x, landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
+        left_elbow = [landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.vaue].x, landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].y]
+        left_wrist = [landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].x, landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].y]
+
+        right_shoulder = [landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y]
+        right_elbow = [landmarks[mp_pose.PoseLandmark.RIGHT_ELBOW.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_ELBOW.value].y]
+        right_wrist = [landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].y]
+
+        left_elbow_angle = calc_angle(left_shoulder, left_elbow, left_wrist)
+        right_elbow_angle = calc_angle(right_shoulder, right_elbow, right_wrist)
+
+        #Down state
+        if left_elbow_angle < 90 and right_elbow_angle < 90:
+            state = "Down"
+            feedback = "Push upwards!"
+
+        #Up state
+        if left_elbow_angle > 160 and right_elbow_angle > 160 and state == "Down":
+            state = "Up"
+            counter += 1
+            feedback = "Good push-up!"
+    except:
+        pass
+
+
+def reset_exercise_state():
+    global counter
+    global state
+    global feedback
+    global range_flag
+    global halfway
+    counter = 0
+    state = 'Down'
+    feedback = ''
+    range_flag = True
+
+
 
 # initialise variables
 counter = 0
@@ -214,8 +252,10 @@ def generate_frames(user_choice):
                 recognise_squat(detection)
             elif user_choice == 2:
                 recognise_curl(detection)
-            else:
+            elif user_choice == 3:
                 recognise_situp(detection)
+            elif user_choice == 4:
+                recognize_pushup(detection)
             
             # Status box setup
             cv2.rectangle(image, (0,0), (int(cap.get(3)), 60), (0,0,0), -1)

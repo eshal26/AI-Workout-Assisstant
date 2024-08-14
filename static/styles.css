@@ -19,8 +19,8 @@ h1 {
 }
 
 .container {
-    width: 90%;
-    height: 90vh;
+    width: 70%;
+    height: 80vh;
     background: 	#ECEFF4;
     padding: 20px;
     border-radius: 8px;
@@ -80,6 +80,7 @@ button {
 
 .exercise-btn{
     font-size: 25px;
+    margin: 15px;
 }
 
 button:hover {
@@ -88,7 +89,7 @@ button:hover {
 }
 
 #videoFeed {
-    width: 100%;
+    width: 95%;
     height: 90vh; 
     border: 2px solid #ddd;
     border-radius: 8px;
