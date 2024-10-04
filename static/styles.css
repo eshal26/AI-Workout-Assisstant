@@ -2,84 +2,83 @@
 
 body {
     margin: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
     font-size: 20px;
     padding: 0;
-    background-color: #fff;
+    background-color: #f7f9fc; /* Lighter background for better contrast */
     color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    line-height: 1.6; /* Improve readability */
 }
 
 h1 {
-    color: #333; ;
+    color: #2a2d34; /* Darker color for better contrast */
+    margin-bottom: 20px; /* Add space below the heading */
 }
 
-.container {
-    width: 70%;
-    height: 80vh;
-    background: 	#ECEFF4;
+.container, .container-vid {
+    width: 90%; /* Increased width for better use of space */
+    max-width: 1200px; /* Added a maximum width */
+    height: auto; /* Let the content determine the height */
+    background: #eceff4; /* Maintain a soft background color */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px; /* Slightly increased border-radius */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
     text-align: center;
-}
-
-.container-vid {
-    width: 95%;
-    height: 95vh;
-    background: 	#ECEFF4;
-    border-radius: 8px;
-    padding: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
+    margin-bottom: 20px; /* Space between containers */
 }
 
 .heading {
-    margin-bottom: 80px;
+    margin-bottom: 40px; /* Reduced margin for better alignment */
 }
 
-#exercise{
-    font-size: 25px;
-    margin-top: 0px;
+#exercise {
+    font-size: 1.5rem; /* Use rem for better scalability */
+    margin-top: 0;
+    font-weight: bold; /* Emphasize the exercise title */
 }
 
 .form-group {
-    margin-top: 80px;
+    margin-top: 40px; /* Reduced top margin */
     margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
     margin: 10px 0;
+    font-weight: bold; /* Make labels stand out */
 }
 
 .form-group input {
     margin-right: 10px;
+    padding: 8px; /* Added padding for better usability */
+    border: 1px solid #ccc; /* Added border */
+    border-radius: 4px; /* Rounded input fields */
 }
 
-
-p{
-    font-size: 30px;
+p {
+    font-size: 1.25rem; /* Use rem for better scalability */
     margin-top: 20px;
 }
 
 button {
-    padding: 10px 10px;
+    padding: 10px 20px; /* Increased padding for better appearance */
     border: none;
-    border-radius: 10px;
-    background-color:#5c5470 ;
-    color:#dbd8e3;
-    font-size: 16px;
+    border-radius: 5px; /* Slightly rounded corners */
+    background-color: #5c5470;
+    color: #dbd8e3;
+    font-size: 1rem;
     cursor: pointer;
-    border: 2px solid #2A2D34 ;
+    border: 2px solid #2a2d34;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
-.exercise-btn{
-    font-size: 25px;
+.exercise-btn {
+    font-size: 1.25rem; /* Increased size for visibility */
     margin: 10px;
 }
 
@@ -93,7 +92,8 @@ button:hover {
     height: 90vh; 
     border: 2px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; /* Space below video feed */
 }
 
 .text {
@@ -108,9 +108,8 @@ button:hover {
     position: relative;
     padding-left: 35px; 
     cursor: pointer;
-    font-size: 18px;
+    font-size: 1rem; /* Use rem for better scalability */
 }
-
 
 .radio-label input[type="radio"] {
     position: absolute;
@@ -118,7 +117,11 @@ button:hover {
     cursor: pointer;
 }
 
+.radio-label:hover {
+    color: #5c5470; /* Change color on hover for visual feedback */
+}
 
-
-
-
+.radio-label input[type="radio"]:checked + span {
+    color: #5c5470; /* Change color of the label text when checked */
+    font-weight: bold; /* Emphasize selected option */
+}
